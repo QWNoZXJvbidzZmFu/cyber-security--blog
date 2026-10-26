@@ -1,0 +1,154 @@
+/* Obsidian-flavoured Markdown styles (see scripts/obsidian.js) */
+
+mark.obsidian-highlight {
+  background: #fff3a3;
+  color: inherit;
+  padding: 0.05em 0.2em;
+  border-radius: 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+[data-theme='dark'] mark.obsidian-highlight {
+  background: rgba(255, 224, 130, 0.26);
+  color: #ffe082;
+}
+
+/* Callouts ---------------------------------------------------------------- */
+
+.obsidian-callout {
+  --obsidian-callout-color: #448aff;
+  margin: 1em 0;
+  padding: 0.7em 1em;
+  border-left: 4px solid var(--obsidian-callout-color);
+  border-radius: 6px;
+  background: rgba(127, 127, 127, 0.08);
+  background: color-mix(in srgb, var(--obsidian-callout-color) 9%, transparent);
+}
+
+.obsidian-callout > :last-child,
+.obsidian-callout > p:last-child {
+  margin-bottom: 0;
+}
+
+.obsidian-callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-bottom: 0.35em;
+  font-weight: 600;
+  color: var(--obsidian-callout-color);
+}
+
+summary.obsidian-callout-title {
+  cursor: pointer;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+summary.obsidian-callout-title::-webkit-details-marker {
+  display: none;
+}
+
+summary.obsidian-callout-title::after {
+  content: '▸';
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+details[open] > summary.obsidian-callout-title::after {
+  transform: rotate(90deg);
+}
+
+.obsidian-callout-icon {
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+/* Colours mirror Obsidian's callout palette. */
+.obsidian-callout-note,
+.obsidian-callout-info,
+.obsidian-callout-todo,
+.obsidian-callout-abstract,
+.obsidian-callout-summary,
+.obsidian-callout-tldr {
+  --obsidian-callout-color: #448aff;
+}
+
+.obsidian-callout-tip,
+.obsidian-callout-hint,
+.obsidian-callout-important {
+  --obsidian-callout-color: #00bfa5;
+}
+
+.obsidian-callout-success,
+.obsidian-callout-check,
+.obsidian-callout-done {
+  --obsidian-callout-color: #00c853;
+}
+
+.obsidian-callout-question,
+.obsidian-callout-help,
+.obsidian-callout-faq {
+  --obsidian-callout-color: #64dd17;
+}
+
+.obsidian-callout-warning,
+.obsidian-callout-caution,
+.obsidian-callout-attention {
+  --obsidian-callout-color: #ff9100;
+}
+
+.obsidian-callout-failure,
+.obsidian-callout-fail,
+.obsidian-callout-missing,
+.obsidian-callout-danger,
+.obsidian-callout-error,
+.obsidian-callout-bug {
+  --obsidian-callout-color: #ff5252;
+}
+
+.obsidian-callout-example {
+  --obsidian-callout-color: #7c4dff;
+}
+
+.obsidian-callout-quote,
+.obsidian-callout-cite {
+  --obsidian-callout-color: #9e9e9e;
+}
+
+[data-theme='dark'] .obsidian-callout {
+  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--obsidian-callout-color) 16%, transparent);
+}
+
+/* Internal links ---------------------------------------------------------- */
+
+a.obsidian-wikilink {
+  color: var(--btn-bg, #49b1f5);
+  text-decoration: none;
+  border-bottom: 1px dashed currentColor;
+}
+
+a.obsidian-wikilink:hover {
+  border-bottom-style: solid;
+}
+
+.obsidian-wikilink.is-missing {
+  color: #999;
+  border-bottom: 1px dashed #999;
+  cursor: help;
+}
+
+.obsidian-embed-missing {
+  color: #c0392b;
+  font-size: 0.92em;
+}
+
+/* Task lists -------------------------------------------------------------- */
+
+.obsidian-task-checkbox {
+  margin-right: 0.4em;
+  vertical-align: middle;
+  accent-color: #448aff;
+}
