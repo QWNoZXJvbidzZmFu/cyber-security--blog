@@ -9,3 +9,6 @@ db.json
 
 # macOS
 .DS_Store
+
+# 主题的 git 历史备份（升级主题时可移回 themes/butterfly/.git）
+.butterfly-git-backup/
