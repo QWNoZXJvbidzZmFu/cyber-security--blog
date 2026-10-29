@@ -288,7 +288,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description:
+    description: ' '
     button:
       enable: true
       icon: fab fa-github
@@ -480,8 +480,8 @@ math:
 search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
-  use: local_search
-  placeholder: 搜索文章
+  use:
+  placeholder:
 
   # Algolia Search
   algolia_search:
