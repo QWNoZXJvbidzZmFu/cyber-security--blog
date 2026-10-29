@@ -293,7 +293,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/QWNoZXJvbidzZmFu
+      link: https://github.com/qwnozxjvbidzzmfu
   card_announcement:
     enable: false
     content:
