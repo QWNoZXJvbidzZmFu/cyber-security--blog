@@ -1,0 +1,102 @@
+/* Obsidian 风格的标题折叠
+ *
+ * 结构由 source/脚本/折叠标题.js 在浏览器里生成：
+ *   <h3 class="fold-heading"><button class="fold-toggle">…</button>标题</h3>
+ *   <div class="fold-body">这一节的内容（含更深层的标题和它们的 fold-body）</div>
+ *
+ * 这里只负责箭头外观、折叠后的显示状态，以及手机 / 打印下的适配。
+ */
+
+#article-container .fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  /* 负的 margin-left 把箭头挂进卡片左侧留白里，
+     width + margin-right + margin-left = 0，所以标题文字的位置完全不变。
+     桌面端卡片左右留白 40px，最大的 h1（28px）悬挂 35px，刚好放得下 */
+  margin: 0 0.25em 0 -1.25em;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--text-highlight-color);
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: -0.125em;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#article-container .fold-toggle svg {
+  display: block;
+  width: 0.58em;
+  height: 0.58em;
+  overflow: visible;
+  transition: transform 0.2s ease;
+}
+
+#article-container .fold-toggle:hover,
+#article-container .fold-toggle:focus-visible,
+#article-container .fold-heading:hover .fold-toggle {
+  opacity: 1;
+  color: var(--pseudo-hover);
+}
+
+#article-container .fold-toggle:focus-visible {
+  outline: 2px solid var(--pseudo-hover);
+  outline-offset: 1px;
+}
+
+/* 折叠起来之后箭头保持可见并转向右边，作为「这里还有内容」的提示 */
+#article-container .fold-heading.is-collapsed .fold-toggle {
+  opacity: 0.9;
+  color: var(--pseudo-hover);
+}
+
+#article-container .fold-heading.is-collapsed .fold-toggle svg {
+  transform: rotate(-90deg);
+}
+
+#article-container .fold-body.is-collapsed {
+  display: none !important;
+}
+
+/* 内容被包进 .fold-body 之后，主题原来的
+   `.container > :last-child { margin-bottom: 0 }` 就不再生效了，这里补回来 */
+#article-container .fold-body > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 触屏设备没有 hover，箭头要一直看得见 */
+@media (hover: none) {
+  #article-container .fold-toggle {
+    opacity: 0.5;
+  }
+
+  #article-container .fold-heading.is-collapsed .fold-toggle {
+    opacity: 1;
+  }
+}
+
+/* 手机上卡片左右留白只有 14px，挂不下箭头，改成正常缩进显示 */
+@media screen and (max-width: 768px) {
+  #article-container .fold-toggle {
+    margin-left: 0;
+  }
+}
+
+/* 打印 / 导出 PDF 时全部展开，箭头不打印 */
+@media print {
+  #article-container .fold-toggle {
+    display: none !important;
+  }
+
+  #article-container .fold-body.is-collapsed {
+    display: block !important;
+  }
+}
