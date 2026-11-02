@@ -168,7 +168,7 @@
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
   copy: {
     success: '复制成功',
     error: '复制失败',
@@ -224,6 +224,11 @@
 .type-404 .error-content .error-img{display:block;width:100%!important;height:auto!important;}
 .type-404 .error-content .error-img img{display:block;width:100%!important;height:auto!important;object-fit:initial!important;transform:none!important;transition:none!important;}
 .type-404 .error-content .error-info{display:none!important;}
+</style>
+<style>
+#article-container figure.highlight .highlight-tools{position:relative;}
+#article-container figure.highlight .highlight-tools .code-lang{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);flex:none;margin:0;padding:0;max-width:38%;font-weight:400;font-size:12px;letter-spacing:1px;opacity:.5;pointer-events:none;}
+#article-container figure.highlight .highlight-tools .copy-button{margin-left:auto;}
 </style>
 <meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/cyber-security--blog/%E6%A0%B7%E5%BC%8F/%E6%8A%98%E5%8F%A0%E6%A0%87%E9%A2%98.css">
 <link rel="stylesheet" href="/cyber-security--blog/%E6%A0%B7%E5%BC%8F/obsidian.css">
